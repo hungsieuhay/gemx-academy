@@ -1,0 +1,175 @@
+/* Course Hero */
+.courseHero {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f26 100%);
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgba(0, 255, 136, 0.1) 0%,
+      transparent 50%
+    );
+  }
+
+  .courseHeroContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+
+    .courseInfoSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .courseMeta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .courseCategory {
+          background: rgba(0, 255, 136, 0.1);
+          color: var(--primary-green);
+          padding: 0.25rem 1rem;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+
+        .courseLevel {
+          background: rgba(255, 255, 255, 0.1);
+          color: var(--text-secondary);
+          padding: 0.25rem 1rem;
+          border-radius: 20px;
+          font-size: 0.85rem;
+        }
+      }
+
+      .course-Title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .courseDescription {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .courseStats {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        .courseRating {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .ratingStars {
+            color: #ffd700;
+          }
+
+          .ratingValue {
+            font-weight: 600;
+            color: var(--text-primary);
+          }
+        }
+
+        .courseStat {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--text-secondary);
+        }
+      }
+
+      .courseActions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .enrollBtn {
+          padding: 1rem 2.5rem;
+          background: var(--gradient-green);
+          color: var(--bg-primary);
+          border: none;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.3);
+          }
+        }
+
+        .priceTag {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--primary-green);
+
+          &.free {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
+
+    .courseVideo {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+
+      .videoPlaceholder {
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .playButton {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          background: white;
+        }
+        .playIcon {
+          width: 0;
+          height: 0;
+          border-left: 25px solid var(--bg-primary);
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

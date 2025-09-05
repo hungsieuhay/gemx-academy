@@ -1,0 +1,41 @@
+/* Partners Section */
+.partners {
+  padding: 4rem 2rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  .partnersContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .partnersTitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .partnersGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+
+    .partnerLogo {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+      font-weight: 600;
+
+      &:hover {
+        color: var(--primary-green);
+        transform: scale(1.1);
+      }
+    }
+  }
+}

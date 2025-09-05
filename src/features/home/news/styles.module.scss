@@ -1,0 +1,32 @@
+.news {
+  padding: 5rem 2rem;
+  background: var(--bg-secondary);
+
+  .newsContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .newsGrid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+
+      .newsSidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .news {
+    .newsContainer {
+      .newsGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

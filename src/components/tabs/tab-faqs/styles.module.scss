@@ -1,0 +1,46 @@
+.faqContainer {
+  margin-top: 2rem;
+
+  .faqItem {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+
+    .faqQuestion {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(0, 255, 136, 0.05);
+      }
+
+      .faqToggle {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        transition: transform 0.3s ease;
+
+        &.active {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .faqAnswer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      &.active {
+        max-height: 500px;
+        padding: 0 1.5rem 1.5rem;
+      }
+    }
+  }
+}

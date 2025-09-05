@@ -1,0 +1,52 @@
+.instructorSection {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+
+  .instructorProfile {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .instructorAvatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gradient-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bg-primary);
+    }
+
+    .instructorInfo {
+      flex: 1;
+
+      .instructorName {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .instructorTitle {
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .instructorStats {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+    }
+
+    .instructorBio {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+/* Reviews */
+.reviewSummary {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+
+  .reviewAverage {
+    text-align: center;
+
+    .reviewScore {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .reviewStarsLarge {
+      color: #ffd700;
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .reviewCount {
+      color: var(--text-muted);
+    }
+  }
+
+  .reviewBreakdown {
+    flex: 1;
+
+    .ratingBar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+
+      .ratingLabel {
+        width: 60px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .ratingProgress {
+        flex: 1;
+        height: 8px;
+        background: var(--bg-secondary);
+        border-radius: 4px;
+        overflow: hidden;
+
+        .ratingFill {
+          height: 100%;
+          background: #ffd700;
+          border-radius: 4px;
+        }
+      }
+
+      .ratingPercent {
+        width: 40px;
+        text-align: right;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .reviewItem {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+
+    .reviewHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .reviewer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .reviewerAvatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: var(--bg-secondary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+        }
+
+        .reviewerName {
+          font-weight: 600;
+        }
+
+        .reviewDate {
+          color: var(--text-muted);
+          font-size: 0.85rem;
+        }
+      }
+
+      .reviewRating {
+        color: #ffd700;
+      }
+    }
+
+    .reviewText {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+}

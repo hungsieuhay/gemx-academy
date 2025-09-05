@@ -1,0 +1,25 @@
+.sidebarItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--primary-green);
+    transform: translateX(5px);
+  }
+
+  .sidebarTitle {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .sidebarDate {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,125 @@
+/* Why GemX Section */
+.whyGemx {
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  .whyGemxBg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 136, 0.05) 0%,
+      transparent 70%
+    );
+  }
+
+  .whyContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    .whyTitle {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--gradient-green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .whySubtitle {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+    }
+
+    .featuresGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+
+      .featureItem {
+        padding: 2rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+          border-color: var(--primary-green);
+          background: rgba(0, 255, 136, 0.05);
+        }
+
+        .featureIcon {
+          width: 70px;
+          height: 70px;
+          margin: 0 auto 1.5rem;
+          background: var(--gradient-green);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+        }
+
+        .featureName {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 0.75rem;
+        }
+
+        .featureDesc {
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+      }
+    }
+
+    .statsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+
+      .stat {
+        text-align: center;
+      }
+
+      .statValue {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-green);
+        margin-bottom: 0.5rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .statName {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .whyGemx {
+    .whyContainer {
+      .featuresGrid {
+        grid-template-columns: 1fr;
+      }
+      .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
