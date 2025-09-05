@@ -1,16 +1,16 @@
 import {
   CourseDetailHero,
   CourseDetailSidebar,
+  CourseDetailTab,
 } from "../../../features/course-detail";
 import styles from "./styles.module.scss";
-import { Tabs } from "../../../components";
 
 const CourseDetailPage = () => {
   return (
     <main>
       <CourseDetailHero />
       <div className={styles.courseContent}>
-        <Tabs />
+        <CourseDetailTab />
         <CourseDetailSidebar />
       </div>
     </main>

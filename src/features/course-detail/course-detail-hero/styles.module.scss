@@ -55,7 +55,7 @@
         }
       }
 
-      .course-Title {
+      .courseTitle {
         font-size: 3rem;
         font-weight: 800;
         margin-bottom: 1rem;
@@ -168,6 +168,40 @@
           border-top: 15px solid transparent;
           border-bottom: 15px solid transparent;
           margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .courseHero {
+    .courseHeroContent {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .courseHero {
+    .courseHeroContent {
+      .courseInfoSection {
+        .courseTitle {
+          font-size: 2rem;
+        }
+
+        .courseStats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .courseActions {
+          flex-direction: column;
+          width: 100%;
+
+          .enrollBtn {
+            width: 100%;
+          }
         }
       }
     }
