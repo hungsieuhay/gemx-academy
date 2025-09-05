@@ -25,7 +25,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className={clsx(styles.contentTabs)}>
+    <div className={clsx(styles.contentTabs, "no-scrollbar")}>
       {tabData.map((item) => (
         <button
           key={item.key}

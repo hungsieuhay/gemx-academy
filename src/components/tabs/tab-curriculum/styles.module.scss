@@ -17,6 +17,8 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 1rem;
 
     &:hover {
       background: rgba(0, 255, 136, 0.05);
@@ -34,6 +36,7 @@
         padding: 0.25rem 0.75rem;
         border-radius: 8px;
         font-size: 0.85rem;
+        white-space: nowrap;
       }
     }
 

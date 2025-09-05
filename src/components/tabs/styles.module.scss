@@ -3,6 +3,8 @@
   gap: 2rem;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 3rem;
+  max-width: calc(100vw - 64px); /* giới hạn theo chiều ngang màn hình */
+  overflow-x: auto; /* nếu bên trong vượt quá thì scroll */
 
   .tabButton {
     padding: 1rem 0;
