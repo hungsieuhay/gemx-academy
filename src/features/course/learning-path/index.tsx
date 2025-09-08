@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import { Target, ChartColumnBig, ChartCandlestick, Lock } from "lucide-react";
 
 const LearningPath = () => {
   return (
@@ -13,7 +14,9 @@ const LearningPath = () => {
 
         <div className={styles.pathsGrid}>
           <div className={styles.pathCard}>
-            <div className={styles.pathIcon}>🎯</div>
+            <div className={styles.pathIcon}>
+              <Target size={40} />
+            </div>
             <h3 className={styles.pathTitle}>Blockchain Developer</h3>
             <p className={styles.pathDescription}>
               Complete path to become a professional blockchain developer from
@@ -36,7 +39,9 @@ const LearningPath = () => {
           </div>
 
           <div className={styles.pathCard}>
-            <div className={styles.pathIcon}>📊</div>
+            <div className={styles.pathIcon}>
+              <ChartColumnBig size={40} />
+            </div>
             <h3 className={styles.pathTitle}>DeFi Specialist</h3>
             <p className={styles.pathDescription}>
               Master decentralized finance protocols and become a DeFi expert.
@@ -58,7 +63,9 @@ const LearningPath = () => {
           </div>
 
           <div className={styles.pathCard}>
-            <div className={styles.pathIcon}>💹</div>
+            <div className={styles.pathIcon}>
+              <ChartCandlestick size={40} />
+            </div>
             <h3 className={styles.pathTitle}>Crypto Trader Pro</h3>
             <p className={styles.pathDescription}>
               Learn professional trading strategies and technical analysis.
@@ -80,7 +87,9 @@ const LearningPath = () => {
           </div>
 
           <div className={styles.pathCard}>
-            <div className={styles.pathIcon}>🔒</div>
+            <div className={styles.pathIcon}>
+              <Lock size={40} />
+            </div>
             <h3 className={styles.pathTitle}>Security Auditor</h3>
             <p className={styles.pathDescription}>
               Become a blockchain security expert and smart contract auditor.

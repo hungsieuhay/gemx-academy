@@ -1,18 +1,14 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
+import { Star, UsersRound, Clock, Globe } from "lucide-react";
+import { Breadcrumb } from "../../../components";
 
 const CourseDetailHero = () => {
   return (
     <section className={styles.courseHero}>
       <div className={styles.courseHeroContent}>
         <div className={styles.courseInfoSection}>
-          <div className="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>/</span>
-            <a href="learn.html">Course</a>
-            <span>/</span>
-            <span>Blockchain Fundamentals</span>
-          </div>
+          <Breadcrumb />
           <div className={styles.courseMeta}>
             <span className={styles.courseCategory}>BLOCKCHAIN</span>
             <span className={styles.courseLevel}>Beginner</span>
@@ -27,20 +23,26 @@ const CourseDetailHero = () => {
           </p>
           <div className={styles.courseStats}>
             <div className={styles.courseRating}>
-              <span className={styles.ratingStars}>⭐⭐⭐⭐⭐</span>
+              <span className={styles.ratingStars}>
+                <Star size={16} />
+                <Star size={16} />
+                <Star size={16} />
+                <Star size={16} />
+                <Star size={16} />
+              </span>
               <span className={styles.ratingValue}>4.9</span>
               <span>(2,341 reviews)</span>
             </div>
             <div className={styles.courseStat}>
-              <span>👥</span>
+              <UsersRound size={16} />
               <span>15,234 students</span>
             </div>
             <div className={styles.courseStat}>
-              <span>⏱</span>
+              <Clock size={16} />
               <span>12 hours</span>
             </div>
             <div className={styles.courseStat}>
-              <span>🌐</span>
+              <Globe size={16} />
               <span>English</span>
             </div>
           </div>

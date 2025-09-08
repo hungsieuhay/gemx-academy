@@ -1,4 +1,3 @@
-/* Header Navigation */
 header {
   position: fixed;
   top: 0;
@@ -51,32 +50,32 @@ header {
       list-style: none;
       gap: 3rem;
 
-      & a {
+      a {
         color: var(--text-secondary);
-        text-decoration: none;
         font-size: 0.95rem;
         font-weight: 500;
         position: relative;
         transition: color 0.3s ease;
-      }
 
-      & a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gradient-green);
-        transition: width 0.3s ease;
-      }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--gradient-green);
+          transition: width 0.3s ease;
+        }
 
-      & a:hover {
-        color: var(--primary-green);
-      }
+        &:hover,
+        &.active {
+          color: var(--primary-green);
 
-      & a:hover::after {
-        width: 100%;
+          &::after {
+            width: 100%;
+          }
+        }
       }
     }
 
@@ -112,34 +111,6 @@ header {
       color: var(--text-primary);
       cursor: pointer;
       font-size: 1.5rem;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    nav {
-      .mobileMenuBtn {
-        display: block;
-      }
-
-      .navMenu,
-      .navActions {
-        display: none;
-      }
-
-      .navMenu.mobileActive {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--bg-primary);
-        padding: 2rem;
-        border-top: 1px solid var(--border-color);
-        gap: 1rem;
-      }
     }
   }
 }

@@ -1,32 +1,49 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
+import type { Category } from "../../../types";
+import { useSearchParams } from "react-router-dom";
 
-const CourseFilter = () => {
+interface CourseFilterProps {
+  categories: Category[];
+}
+
+const CourseFilter = ({ categories }: CourseFilterProps) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get("category") || "all";
+
+  const handleFilter = (slug: string) => {
+    setSearchParams({ category: slug });
+  };
+
+  const filterActive = (slug: string) => {
+    if (slug === "all") return category === "all";
+    return category === slug;
+  };
   return (
     <section className={styles.filterSection}>
       <div className={styles.filterContainer}>
         <div className={styles.filterTabs}>
           <button
-            className={clsx(styles.filterBtn, styles.active)}
-            data-filter="all"
+            onClick={() => handleFilter("all")}
+            className={clsx(
+              styles.filterBtn,
+              filterActive("all") && styles.active
+            )}
           >
             All Courses
           </button>
-          <button className={styles.filterBtn} data-filter="beginner">
-            Beginner
-          </button>
-          <button className={styles.filterBtn} data-filter="intermediate">
-            Intermediate
-          </button>
-          <button className={styles.filterBtn} data-filter="advanced">
-            Advanced
-          </button>
-          <button className={styles.filterBtn} data-filter="free">
-            Free
-          </button>
-          <button className={styles.filterBtn} data-filter="premium">
-            Premium
-          </button>
+          {categories.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleFilter(item.slug)}
+              className={clsx(
+                styles.filterBtn,
+                filterActive(item.slug) && styles.active
+              )}
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
 
         <div className={styles.filterOptions}>

@@ -81,6 +81,8 @@
 
           .ratingStars {
             color: #ffd700;
+            display: flex;
+            align-items: center;
           }
 
           .ratingValue {

@@ -1,15 +1,13 @@
+import { Breadcrumb } from "../../../components";
 import styles from "./styles.module.scss";
+import { Trophy, UsersRound, BookCopy } from "lucide-react";
 
 const CourseHero = () => {
   return (
     <section className={styles.learnHero}>
       <div className={styles.learnHeroContent}>
         <div className={styles.learnHeroText}>
-          <div className="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>/</span>
-            <span>Learn</span>
-          </div>
+          <Breadcrumb />
           <h1 className="gradient-text">Master Blockchain & Cryptocurrency</h1>
           <p>
             Start your journey with our comprehensive courses designed by
@@ -27,21 +25,27 @@ const CourseHero = () => {
 
           <div className={styles.learnStats}>
             <div className={styles.learnStat}>
-              <div className={styles.learnStatIcon}>📚</div>
+              <div className={styles.learnStatIcon}>
+                <BookCopy size={20} />
+              </div>
               <div>
                 <div className={styles.learnStatValue}>200+</div>
                 <div className={styles.learnStatLabel}>Courses</div>
               </div>
             </div>
             <div className={styles.learnStat}>
-              <div className={styles.learnStatIcon}>👥</div>
+              <div className={styles.learnStatIcon}>
+                <UsersRound size={20} />
+              </div>
               <div>
                 <div className={styles.learnStatValue}>50K+</div>
                 <div className={styles.learnStatLabel}>Students</div>
               </div>
             </div>
             <div className={styles.learnStat}>
-              <div className={styles.learnStatIcon}>🏆</div>
+              <div className={styles.learnStatIcon}>
+                <Trophy size={20} />
+              </div>
               <div>
                 <div className={styles.learnStatValue}>98%</div>
                 <div className={styles.learnStatLabel}>Success Rate</div>

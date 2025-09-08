@@ -21,14 +21,22 @@ export interface Course {
   description: string;
   status: string;
   image: string;
-  author: string | null;
+  author: string;
+  fee: number;
+  category_id: number;
   speakers: string[] | null;
   created_at: string;
   updated_at: string;
 }
 
-// Research article
+// Category
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+}
 
+// Research article
 export type Research = {
   id: string;
   img_path: string;

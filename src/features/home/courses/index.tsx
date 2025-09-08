@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import styles from "./styles.module.scss";
 import courseApi from "../../../api/course-api";
-import { CourseCard } from "../../../components";
+import { CourseCardSecondary } from "../../../components";
+import type { Course } from "../../../types";
+import { getRandom } from "../../../utils";
+import styles from "./styles.module.scss";
 
 const Courses = () => {
   const { data, status } = useQuery({
@@ -16,21 +18,23 @@ const Courses = () => {
     <section className={styles.courses} id="learn">
       <div className="section-header">
         <h2 className="section-title">Featured Courses</h2>
-        <a href="#" className="view-all">
+        <a href="/course" className="view-all">
           View all courses →
         </a>
       </div>
       <div className={styles.coursesGrid}>
-        {data.data.map(({ id, name, description, image, author, slug }) => (
-          <CourseCard
-            key={id}
-            title={name}
-            desc={description}
-            imgUrl={image}
-            author={author as string}
-            slug={slug}
-          />
-        ))}
+        {getRandom<Course>(data.data, 3).map(
+          ({ id, name, description, image, author, slug }) => (
+            <CourseCardSecondary
+              key={id}
+              title={name}
+              desc={description}
+              imgUrl={image}
+              author={author as string}
+              slug={slug}
+            />
+          )
+        )}
       </div>
     </section>
   );
