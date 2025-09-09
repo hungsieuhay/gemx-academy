@@ -1,0 +1,138 @@
+.lessonHeader {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .backBtn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      text-decoration: none;
+
+      &:hover {
+        border-color: var(--primary-green);
+        color: var(--primary-green);
+      }
+    }
+
+    .lessonInfo {
+      display: flex;
+      flex-direction: column;
+
+      .courseName {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .lessonTitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .progressIndicator {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 25px;
+
+      .progressText {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .progressBarMini {
+        width: 100px;
+        height: 6px;
+        background: var(--bg-primary);
+        border-radius: 3px;
+        overflow: hidden;
+
+        .progressFillMini {
+          height: 100%;
+          background: var(--gradient-green);
+          border-radius: 3px;
+          transition: width 0.5s;
+        }
+      }
+    }
+
+    .completeBtn {
+      background: var(--gradient-green);
+      color: var(--bg-primary);
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+      }
+
+      &:disabled {
+        background: var(--bg-secondary);
+        color: var(--text-muted);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .lessonHeader {
+    .headerLeft {
+      .backBtn {
+        font-size: 0.875rem;
+        white-space: nowrap;
+      }
+
+      .lessonInfo {
+        .lessonTitle {
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .lessonHeader {
+    padding: 1rem;
+
+    .headerRight {
+      display: none;
+    }
+  }
+}

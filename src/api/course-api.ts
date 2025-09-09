@@ -14,6 +14,10 @@ const courseApi = {
     });
     return res;
   },
+  async getCoursesDetail(slug: string): Promise<{ data: Course }> {
+    const res = await axiosClient.get<{ data: Course }>(`/course/${slug}`);
+    return res;
+  },
 };
 
 export default courseApi;

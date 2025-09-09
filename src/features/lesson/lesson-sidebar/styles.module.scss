@@ -1,0 +1,236 @@
+.lessonSidebar {
+  width: 350px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  transition: transform 0.3s;
+
+  .sidebarTabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+
+    .tabBtn {
+      flex: 1;
+      padding: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+
+      &.active {
+        color: var(--primary-green);
+      }
+
+      &.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary-green);
+      }
+    }
+  }
+
+  .tabContent {
+    display: none;
+    padding: 1.5rem;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+/* Lesson List */
+.lessonList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .lessonItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgba(0, 255, 136, 0.05);
+      border-color: var(--primary-green);
+    }
+
+    &.active {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: var(--primary-green);
+
+      & .lessonStatus {
+        border-color: var(--primary-green);
+        color: var(--primary-green);
+      }
+    }
+
+    &.completed {
+      opacity: 0.7;
+
+      & .lessonStatus {
+        background: var(--gradient-green);
+        border-color: var(--primary-green);
+        color: var(--bg-primary);
+      }
+    }
+
+    .lessonStatus {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .lessonMeta {
+      flex: 1;
+
+      .lessonName {
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .lessonDuration {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+    }
+  }
+}
+
+/* Resources Tab */
+.resourceItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--text-primary);
+
+  &:hover {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--primary-green);
+  }
+
+  .resourceIcon {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .resourceInfo {
+    flex: 1;
+
+    .resourceName {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .resourceSize {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  }
+}
+
+/* Notes Tab */
+.notesContainer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+
+  .notesTextarea {
+    width: 100%;
+    min-height: 300px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-green);
+    }
+  }
+
+  .saveNotesBtn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--gradient-green);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .lessonSidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    height: calc(100vh - 80px);
+    z-index: 99;
+    transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .lessonSidebar {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    height: calc(100vh - 100px);
+    z-index: 99;
+    transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}

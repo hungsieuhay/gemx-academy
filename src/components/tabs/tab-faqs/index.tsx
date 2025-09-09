@@ -5,33 +5,45 @@ import { useState } from "react";
 const faqData = [
   {
     id: "1",
-    question: "Do I need any prior programming knowledge?",
+    question: "What are the Gemx Academy educational courses?",
     answer:
-      "No, this course is designed for complete beginners. While some technical concepts are covered, no prior programming experience is required. Everything is explained from the ground up.",
+      "Gemx Academy, educational arm, introduces online courses to its versatile list of offerings. In addition to in-depth articles, the Learn & Earn program, in-person educational seminars, and educational partnerships with universities, you can now take online courses to advance your knowledge in specific areas related to blockchain technology, crypto, and Web3.",
   },
   {
     id: "2",
-    question: "How long do I have access to the course?",
-    answer:
-      "You have lifetime access to the course once enrolled. You can learnat your own pace and revisit the material whenever you need to refresh your knowledge.",
+    question: "What courses are there? Are they free?",
+    answer: "Gemx Academy hosts a selection of free and paid courses.",
   },
   {
     id: "3",
-    question: "Will I receive a certificate?",
+    question:
+      "Do I have to log into my Gemx Academy account to take the courses?",
     answer:
-      "Yes! Upon successful completion of all modules and passing the final assessment with at least 80%, you'll receive a blockchain-verified NFT certificate.",
+      "For free courses, logging into your Gemx Academy account is not mandatory, but we highly recommend you do so. This allows you to track your course progress effectively, and you’ll be able to receive PDF and/or NFT certificates. If you don't log in to your Gemx Academy account, your learning progress cannot be recorded.For free courses, logging into your Gemx Academy account is not mandatory, but we highly recommend you do so. This allows you to track your course progress effectively, and you’ll be able to receive PDF and/or NFT certificates. If you don't log in to your Gemx Academy account, your learning progress cannot be recorded.",
   },
   {
     id: "4",
-    question: "Can I interact with the instructor?",
+    question: "What is the Learn & Earn program?",
     answer:
-      "Yes, you can ask questions in the course discussion forum where Dr. Chen and teaching assistants regularly provide answers and guidance.",
+      "The Learn & Earn program allows you to earn cryptocurrency rewards by completing specific learning tasks or modules, such as passing quizzes and interacting with blockchain applications. It’s a way to learn while earning at the same time.",
   },
   {
     id: "5",
-    question: "What if I'm not satisfied with the course?",
+    question: "Are the courses beginner-friendly?",
     answer:
-      "We offer a 30-day money-back guarantee. If you're not satisfied with the course for any reason, you can request a full refund within 30 days of enrollment.",
+      "Yes. Gemx Academy offers courses for all levels, from beginner to advanced. If you're new to crypto or blockchain, we recommend starting with the Blockchain Basics, Cryptocurrency Basics courses.",
+  },
+  {
+    id: "6",
+    question: "Can I access the courses from my phone or tablet?",
+    answer:
+      "Yes, Gemx Academy’s platform is fully mobile-responsive, meaning you can learn from your smartphone, tablet, or desktop with a stable internet connection.",
+  },
+  {
+    id: "7",
+    question: "How long does it take to complete a course?",
+    answer:
+      "Course length varies. Some micro-courses can be completed in under 30 minutes, while others may take a few hours depending on the depth of content. You can learn at your own pace and pick up where you left off.",
   },
 ];
 

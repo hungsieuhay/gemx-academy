@@ -141,35 +141,40 @@
 
       .videoPlaceholder {
         aspect-ratio: 16/9;
-        background: linear-gradient(135deg, #667eea, #764ba2);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-      }
 
-      .playButton {
-        width: 80px;
-        height: 80px;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1);
-          background: white;
+        & > img {
+          width: 100%;
+          height: 100%;
         }
-        .playIcon {
-          width: 0;
-          height: 0;
-          border-left: 25px solid var(--bg-primary);
-          border-top: 15px solid transparent;
-          border-bottom: 15px solid transparent;
-          margin-left: 5px;
+
+        .playButton {
+          position: absolute;
+          width: 80px;
+          height: 80px;
+          background: rgba(255, 255, 255, 0.6);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+            background: white;
+          }
+          .playIcon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid var(--bg-primary);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+          }
         }
       }
     }

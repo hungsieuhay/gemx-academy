@@ -2,8 +2,13 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { Star, UsersRound, Clock, Globe } from "lucide-react";
 import { Breadcrumb } from "../../../components";
+import { useCourse } from "../../../hooks";
 
 const CourseDetailHero = () => {
+  const { course } = useCourse();
+
+  if (!course) return;
+
   return (
     <section className={styles.courseHero}>
       <div className={styles.courseHeroContent}>
@@ -13,9 +18,7 @@ const CourseDetailHero = () => {
             <span className={styles.courseCategory}>BLOCKCHAIN</span>
             <span className={styles.courseLevel}>Beginner</span>
           </div>
-          <h1 className={styles.courseTitle}>
-            Blockchain Fundamentals & Cryptocurrency Basics
-          </h1>
+          <h1 className={styles.courseTitle}>{course.name}</h1>
           <p className={styles.courseDescription}>
             Master the core concepts of blockchain technology from the ground
             up. This comprehensive coursecovers everything from basic
@@ -54,8 +57,9 @@ const CourseDetailHero = () => {
         <div className={styles.courseVideo}>
           <div className={styles.videoPlaceholder}>
             <div className={styles.playButton}>
-              <div className={styles.playIcon}></div>
+              <div className={styles.playIcon} />
             </div>
+            <img src={course.image} alt="course-thumbnail" />
           </div>
         </div>
       </div>

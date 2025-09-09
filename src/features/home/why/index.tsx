@@ -1,13 +1,13 @@
-import { useEffect, useRef } from "react";
-import styles from "./styles.module.scss";
 import {
-  GraduationCap,
+  ChartColumn,
   Earth,
   Gem,
-  ChartColumn,
-  Trophy,
+  GraduationCap,
   Lock,
+  Trophy,
 } from "lucide-react";
+import { useEffect, useRef } from "react";
+import styles from "./styles.module.scss";
 
 const Why = () => {
   const statsGridRef = useRef<HTMLDivElement | null>(null);

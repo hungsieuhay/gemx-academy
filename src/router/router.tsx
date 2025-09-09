@@ -4,18 +4,24 @@ import HomePage from "../pages/home";
 import CoursePage from "../pages/course";
 import CourseDetailPage from "../pages/course/detail";
 import CourseListPage from "../pages/course/list";
+import { CourseProvider } from "../provider/course-provider";
+import LessonPage from "../pages/lesson";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <CourseProvider>
+        <Layout />
+      </CourseProvider>
+    ),
     children: [
       {
         index: true,
         element: <HomePage />,
       },
       {
-        path: "/course",
+        path: "course",
         element: <CoursePage />,
         children: [
           {
@@ -25,6 +31,10 @@ const router = createBrowserRouter([
           {
             path: ":courseSlug",
             element: <CourseDetailPage />,
+          },
+          {
+            path: ":courseSlug/:lessonSlug",
+            element: <LessonPage />,
           },
         ],
       },

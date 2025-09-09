@@ -1,16 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Footer from "./footer";
 import Navigation from "./navigations";
 import styles from "./styles.module.scss";
 import ScrollToTop from "./scroll-top";
 
 const Layout = () => {
+  const { lessonSlug } = useParams();
+
   return (
     <div className={styles.layout}>
       <ScrollToTop />
-      <Navigation />
+      {!lessonSlug && <Navigation />}
       <Outlet />
-      <Footer />
+      {!lessonSlug && <Footer />}
     </div>
   );
 };
