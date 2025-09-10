@@ -1,0 +1,42 @@
+.lesson {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(0, 255, 136, 0.05);
+  }
+
+  .lessonIcon {
+    width: 36px;
+    height: 36px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+  }
+
+  &.completed .lessonIcon {
+    background: var(--gradient-green);
+    color: var(--bg-primary);
+  }
+
+  .lessonTitle {
+    flex: 1;
+  }
+
+  .lessonDuration {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+}

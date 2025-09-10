@@ -1,0 +1,35 @@
+.moduleHeader {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &:hover {
+    background: rgba(0, 255, 136, 0.05);
+  }
+
+  .moduleTitle {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .moduleNumber {
+      background: rgba(0, 255, 136, 0.1);
+      color: var(--primary-green);
+      padding: 0.25rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+  }
+
+  .moduleInfo {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+}

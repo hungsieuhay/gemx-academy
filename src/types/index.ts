@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 // Respose data
 export interface Pagination {
   meta: {
@@ -29,7 +28,7 @@ export interface Question {
 }
 
 // Lesson
-export interface LessonDetails {
+export interface Lesson {
   id: string;
   name: string;
   description: string;
@@ -63,7 +62,7 @@ export interface Section {
   course_id: number;
   created_at: string;
   updated_at: string;
-  lessons: LessonDetails[];
+  lessons: Lesson[];
 }
 
 // Comments

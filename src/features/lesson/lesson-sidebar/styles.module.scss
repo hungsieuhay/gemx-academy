@@ -1,5 +1,5 @@
 .lessonSidebar {
-  width: 350px;
+  width: 360px;
   background: var(--bg-secondary);
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
@@ -42,76 +42,6 @@
 
     &.active {
       display: block;
-    }
-  }
-}
-
-/* Lesson List */
-.lessonList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  .lessonItem {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background: rgba(0, 255, 136, 0.05);
-      border-color: var(--primary-green);
-    }
-
-    &.active {
-      background: rgba(0, 255, 136, 0.1);
-      border-color: var(--primary-green);
-
-      & .lessonStatus {
-        border-color: var(--primary-green);
-        color: var(--primary-green);
-      }
-    }
-
-    &.completed {
-      opacity: 0.7;
-
-      & .lessonStatus {
-        background: var(--gradient-green);
-        border-color: var(--primary-green);
-        color: var(--bg-primary);
-      }
-    }
-
-    .lessonStatus {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--bg-primary);
-      border: 2px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-    }
-
-    .lessonMeta {
-      flex: 1;
-
-      .lessonName {
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-      }
-
-      .lessonDuration {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
     }
   }
 }

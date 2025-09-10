@@ -1,10 +1,12 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-import { Check, Play } from "lucide-react";
+import LessonTab from "../lesson-tab";
+import type { Lesson } from "../../../types";
 
 interface LessonSidebarProps {
   open?: boolean;
+  data: Lesson[];
 }
 
 const lessonTab = [
@@ -13,7 +15,7 @@ const lessonTab = [
   { key: "notes-tab", label: "Notes" },
 ];
 
-const LessonSidebar = ({ open = false }: LessonSidebarProps) => {
+const LessonSidebar = ({ open = false, data }: LessonSidebarProps) => {
   const [tabKey, setTabKey] = useState<string>("lessons-tab");
 
   const onClick = (key: string) => {
@@ -49,55 +51,7 @@ const LessonSidebar = ({ open = false }: LessonSidebarProps) => {
       </div>
 
       <div className={clsx(styles.tabContent, styles.active)} id="lessons-tab">
-        <div className={styles.lessonList}>
-          <div className={clsx(styles.lessonItem, styles.completed)}>
-            <div className={styles.lessonStatus}>
-              <Check size={14} />
-            </div>
-            <div className={styles.lessonMeta}>
-              <div className={styles.lessonName}>
-                2. Blockchain Basics Review
-              </div>
-              <div className={styles.lessonDuration}>15:45</div>
-            </div>
-          </div>
-          <div className={clsx(styles.lessonItem, styles.active)}>
-            <div className={styles.lessonStatus}>
-              <Play size={14} />
-            </div>
-            <div className={styles.lessonMeta}>
-              <div className={styles.lessonName}>
-                5. Introduction to Smart Contracts
-              </div>
-              <div className={styles.lessonDuration}>18:30</div>
-            </div>
-          </div>
-          <div className={styles.lessonItem}>
-            <div className={styles.lessonStatus}>6</div>
-            <div className={styles.lessonMeta}>
-              <div className={styles.lessonName}>
-                6. Writing Your First Smart Contract
-              </div>
-              <div className={styles.lessonDuration}>30:00</div>
-            </div>
-          </div>
-          <div className={styles.lessonItem}>
-            <div className={styles.lessonStatus}>7</div>
-            <div className={styles.lessonMeta}>
-              <div className={styles.lessonName}>7. Solidity Basics</div>
-              <div className={styles.lessonDuration}>35:20</div>
-            </div>
-          </div>
-          <div className={styles.lessonItem}>
-            <div className={styles.lessonStatus}>8</div>
-            <div className={styles.lessonMeta}>
-              <div className={styles.lessonName}>
-                8. Variables and Data Types
-              </div>
-              <div className={styles.lessonDuration}>22:10</div>
-            </div>
-          </div>
-        </div>
+        <LessonTab data={data} />
       </div>
 
       <div className={styles.tabContent} id="resources-tab">
