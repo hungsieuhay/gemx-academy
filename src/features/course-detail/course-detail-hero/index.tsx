@@ -1,11 +1,36 @@
 import clsx from "clsx";
-import styles from "./styles.module.scss";
-import { Star, UsersRound, Clock, Globe } from "lucide-react";
+import { Clock, Globe, Star, UsersRound } from "lucide-react";
+import { useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Breadcrumb } from "../../../components";
-import { useCourse } from "../../../hooks";
+import { useAppkitModal, useCourse } from "../../../hooks";
+import styles from "./styles.module.scss";
 
 const CourseDetailHero = () => {
   const { course } = useCourse();
+  const { courseSlug } = useParams();
+  const navigate = useNavigate();
+
+  const lessonUrl = useMemo(() => {
+    let url: string = "";
+    if (!course) return;
+    const { sections } = course;
+
+    for (const section of sections) {
+      const lessonCompleted = section.lessons.find((item) => item.is_completed);
+      if (lessonCompleted) {
+        url = `/course/${courseSlug}/${section.slug}/${lessonCompleted.slug}`;
+      }
+    }
+    url = `/course/${courseSlug}/${sections[0].slug}/${sections[0].lessons[0].slug}`;
+    return url;
+  }, [course, courseSlug]);
+
+  const handleNavigate = () => {
+    navigate(lessonUrl as string);
+  };
+
+  const { handleOpenAppkit } = useAppkitModal({ func: handleNavigate });
 
   if (!course) return;
 
@@ -50,13 +75,15 @@ const CourseDetailHero = () => {
             </div>
           </div>
           <div className={styles.courseActions}>
-            <button className={styles.enrollBtn}>Enroll Now</button>
+            <button className={styles.enrollBtn} onClick={handleOpenAppkit}>
+              Enroll Now
+            </button>
             <span className={clsx(styles.priceTag, styles.free)}>FREE</span>
           </div>
         </div>
         <div className={styles.courseVideo}>
           <div className={styles.videoPlaceholder}>
-            <div className={styles.playButton}>
+            <div className={styles.playButton} onClick={handleOpenAppkit}>
               <div className={styles.playIcon} />
             </div>
             <img src={course.image} alt="course-thumbnail" />

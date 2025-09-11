@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import CourseCardPrimary from "../../../components/course-card-primary";
 import type { Category } from "../../../types";
 import { useSearchParams } from "react-router-dom";
+import { Inbox } from "lucide-react";
 
 interface CourseListProps {
   categories: Category[];
@@ -24,36 +25,43 @@ const CourseList = ({ categories }: CourseListProps) => {
 
   return (
     <section className={styles.coursesSection}>
-      <div className={styles.coursesGrid}>
-        {data.data.map(
-          ({
-            id,
-            description,
-            image,
-            author,
-            slug,
-            fee,
-            name,
-            category_id,
-          }) => {
-            const category = categories.find(
-              (item) => item.id === category_id
-            )?.name;
-            return (
-              <CourseCardPrimary
-                key={id}
-                title={name}
-                desc={description}
-                image={image}
-                author={author}
-                slug={slug}
-                fee={fee}
-                category={category ?? ""}
-              />
-            );
-          }
-        )}
-      </div>
+      {data && data.data.length > 0 ? (
+        <div className={styles.coursesGrid}>
+          {data.data.map(
+            ({
+              id,
+              description,
+              image,
+              author,
+              slug,
+              fee,
+              name,
+              category_id,
+            }) => {
+              const category = categories.find(
+                (item) => item.id === category_id
+              )?.name;
+              return (
+                <CourseCardPrimary
+                  key={id}
+                  title={name}
+                  desc={description}
+                  image={image}
+                  author={author}
+                  slug={slug}
+                  fee={fee}
+                  category={category ?? ""}
+                />
+              );
+            }
+          )}
+        </div>
+      ) : (
+        <div className={styles.empty}>
+          <Inbox size={80} strokeWidth={1} />
+          <p>No data</p>
+        </div>
+      )}
     </section>
   );
 };

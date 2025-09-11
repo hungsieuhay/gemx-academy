@@ -8,6 +8,19 @@
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
   }
+
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    padding: 2rem;
+
+    & > p {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 @media (max-width: 768px) {

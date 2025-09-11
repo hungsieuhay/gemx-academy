@@ -46,14 +46,14 @@ const CourseFilter = ({ categories }: CourseFilterProps) => {
           ))}
         </div>
 
-        <div className={styles.filterOptions}>
+        {/* <div className={styles.filterOptions}>
           <select className={styles.filterSelect}>
             <option>Sort by: Popularity</option>
             <option>Sort by: Newest</option>
             <option>Sort by: Rating</option>
             <option>Sort by: Price</option>
           </select>
-        </div>
+        </div> */}
       </div>
     </section>
   );

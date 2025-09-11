@@ -58,6 +58,9 @@ createAppKit({
     history: false,
     smartSessions: false,
   },
+  themeVariables: {
+    "--w3m-z-index": 50,
+  },
 });
 
 export const config = wagmiAdapter.wagmiConfig;

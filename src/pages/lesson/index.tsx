@@ -10,6 +10,7 @@ import {
 } from "../../features/lesson";
 import styles from "./styles.module.scss";
 import lessonApi from "../../api/lesson-api";
+import { Loading } from "../../components";
 
 const LessonPage = () => {
   const { sectionSlug, lessonSlug } = useParams();
@@ -30,7 +31,7 @@ const LessonPage = () => {
   ).length;
 
   if (sectionStatus === "pending" || lessonStatus === "pending")
-    return <div>Loading ...</div>;
+    return <Loading />;
   if (sectionStatus === "error" || lessonStatus === "error") return;
 
   return (
@@ -43,7 +44,7 @@ const LessonPage = () => {
       />
       <div className={styles.lessonContainer}>
         <LessonSidebar data={sectionData.data.lessons} open={open} />
-        <LessonContent src={lessonData.data.link} />
+        <LessonContent url={lessonData.data.link} />
         <button className={styles.sidebarToggle} onClick={() => setOpen(!open)}>
           {open ? <X color="#ffffff" /> : <BookCopy color="#ffffff" />}
         </button>

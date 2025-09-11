@@ -36,7 +36,7 @@ const LessonNavigation = ({
           <div className={styles.progressBarMini}>
             <div
               className={styles.progressFillMini}
-              style={{ width: "45%" }}
+              style={{ width: `${(totalCompleted / total) * 100}%` }}
             ></div>
           </div>
         </div>

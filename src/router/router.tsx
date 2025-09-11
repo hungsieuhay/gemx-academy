@@ -6,6 +6,7 @@ import CourseDetailPage from "../pages/course/detail";
 import CourseListPage from "../pages/course/list";
 import { CourseProvider } from "../provider/course-provider";
 import LessonPage from "../pages/lesson";
+import ComingSoon from "../components/coming-soon";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
             element: <LessonPage />,
           },
         ],
+      },
+      {
+        path: "earn",
+        element: <ComingSoon />,
+      },
+      {
+        path: "news",
+        element: <ComingSoon />,
       },
     ],
   },

@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import { Check, Lock, Play } from "lucide-react";
 import type { ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAppkitModal } from "../../../hooks";
 import styles from "./styles.module.scss";
 
 type Mode = "completed" | "play" | "lock";
@@ -26,20 +27,25 @@ const ModuleLesson = ({
   sectionSlug,
 }: ModuleLessonProps) => {
   const { courseSlug } = useParams();
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/course/${courseSlug}/${sectionSlug}/${slug}`);
+  };
+
+  const { handleOpenAppkit } = useAppkitModal({ func: handleNavigate });
 
   return (
-    <Link to={`/course/${courseSlug}/${sectionSlug}/${slug}`}>
-      <div
-        className={clsx(
-          styles.lesson,
-          currentMode === "completed" ? styles.completed : ""
-        )}
-      >
-        <span className={styles.lessonIcon}>{modeIcon[currentMode]}</span>
-        <span className={styles.lessonTitle}>{name}</span>
-        <span className={styles.lessonDuration}>20:15</span>
-      </div>
-    </Link>
+    <div
+      className={clsx(
+        styles.lesson,
+        currentMode === "completed" ? styles.completed : ""
+      )}
+      onClick={handleOpenAppkit}
+    >
+      <span className={styles.lessonIcon}>{modeIcon[currentMode]}</span>
+      <span className={styles.lessonTitle}>{name}</span>
+      <span className={styles.lessonDuration}>20:15</span>
+    </div>
   );
 };
 

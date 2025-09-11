@@ -2,6 +2,14 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
+import {
+  useAppKit,
+  useAppKitAccount,
+  useDisconnect,
+} from "@reown/appkit/react";
+import { useAccount } from "wagmi";
+import { X, Menu, User } from "lucide-react";
+import { useAppkitModal } from "../../hooks";
 
 const navigations = [
   { id: 1, label: "Home", href: "/" },
@@ -14,6 +22,22 @@ const Navigation = () => {
   const [isActiveMobile, setIsActiveMobie] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { open: openAppKit } = useAppKit();
+  const { disconnect } = useDisconnect();
+  const { isConnected } = useAccount();
+  const { status } = useAppKitAccount();
+
+  const logout = () => {
+    disconnect().then(() => {
+      navigate("/");
+    });
+  };
+
+  const { handleOpenAppkit } = useAppkitModal({ func: logout });
+
+  const onOpen = () => {
+    openAppKit();
+  };
 
   const checkActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -43,20 +67,38 @@ const Navigation = () => {
               </a>
             </li>
           ))}
+
+          <button
+            className={clsx(styles.connectWalletBtn, styles.mobile)}
+            onClick={() => {
+              setIsActiveMobie(false);
+              handleOpenAppkit();
+            }}
+          >
+            {isConnected && status === "connected"
+              ? "Sign out"
+              : "Connect Wallet"}
+          </button>
         </ul>
         <div className={styles.navActions}>
-          <button
-            className={styles.connectWalletBtn}
-            onClick={() => navigate("/login")}
-          >
-            Connect Wallet
-          </button>
+          {isConnected && status === "connected" ? (
+            <div className={styles.menu}>
+              <User />
+              <ul className={styles.menuContainer}>
+                <li onClick={logout}>Sign out</li>
+              </ul>
+            </div>
+          ) : (
+            <button className={styles.connectWalletBtn} onClick={onOpen}>
+              Connect Wallet
+            </button>
+          )}
         </div>
         <button
           className={styles.mobileMenuBtn}
           onClick={() => setIsActiveMobie(!isActiveMobile)}
         >
-          ☰
+          {isActiveMobile ? <X /> : <Menu />}
         </button>
       </nav>
     </header>
