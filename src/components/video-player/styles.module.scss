@@ -2,7 +2,7 @@
   background: #000;
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 60%;
 
   .videoPlaceholder {
     width: 100%;
@@ -31,11 +31,15 @@
 
       .leftControl {
         display: flex;
+        align-items: center;
         gap: 0.5rem;
       }
 
       .progress {
         flex: 1;
+        display: flex;
+        align-items: center;
+
         & > input {
           width: 100%;
         }
@@ -44,11 +48,30 @@
       .rightControl {
         display: flex;
         gap: 0.5rem;
-
-        & > input {
-          margin-bottom: 0.325rem;
-        }
+        align-items: center;
       }
     }
+  }
+}
+
+.iconBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: #fff;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .videoSection {
+    height: 40%;
   }
 }

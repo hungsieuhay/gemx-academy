@@ -168,11 +168,15 @@ const VideoPlayer = ({ handleVideoEnded, url }: Props) => {
         <div className={styles.overlay} onClick={handlePlayPause} />
         <div className={styles.videoControls}>
           <div className={styles.leftControl}>
-            <RotateCcw onClick={seekBackward} />
-            <div onClick={handlePlayPause}>
+            <button className={styles.iconBtn} onClick={seekBackward}>
+              <RotateCcw />
+            </button>
+            <button className={styles.iconBtn} onClick={handlePlayPause}>
               {playing ? <Pause /> : <Play />}
-            </div>
-            <RotateCw onClick={seekForward} />
+            </button>
+            <button className={styles.iconBtn} onClick={seekForward}>
+              <RotateCw />
+            </button>
           </div>
 
           <div className={styles.progress}>
@@ -189,18 +193,17 @@ const VideoPlayer = ({ handleVideoEnded, url }: Props) => {
               onMouseUp={handleSeekMouseUp}
               onTouchStart={() => setSeeking(true)}
               onTouchEnd={handleSeekTouchEnd}
-              className="slider"
             />
           </div>
 
           <div className={styles.rightControl}>
-            <label htmlFor="volume">
+            <button className={styles.iconBtn}>
               {muted ? (
                 <VolumeX onClick={toggleMute} />
               ) : (
                 <Volume2 onClick={toggleMute} />
               )}
-            </label>
+            </button>
             <input
               id="volume"
               type="range"
@@ -210,7 +213,9 @@ const VideoPlayer = ({ handleVideoEnded, url }: Props) => {
               value={volume}
               onChange={handleVolumeChange}
             />
-            <Maximize onClick={toggleFullscreen} />
+            <button className={styles.iconBtn} onClick={toggleFullscreen}>
+              <Maximize />
+            </button>
           </div>
         </div>
       </div>

@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleStarted = () => {
+    navigate("/course");
+  };
   return (
     <section className={styles.hero} id="home">
       <div className={styles.heroBg}></div>
@@ -20,7 +26,9 @@ const Hero = () => {
         </p>
 
         <div className={styles.heroButtons}>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary" onClick={handleStarted}>
+            Get Started
+          </button>
           <button className="btn btn-secondary">Watch Demo</button>
         </div>
       </div>
